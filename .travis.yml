@@ -1,0 +1,9 @@
+sudo: required
+services:
+  -docker
+
+before_install:
+  - docker build -t shwetalishine/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run shwetalishine/docker-react npm run test -- --coverage
